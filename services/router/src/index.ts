@@ -1,4 +1,3 @@
-import "@fxswap/configs";
 import { configs } from "@fxswap/configs";
 import express from "express";
 import { errorMiddleware } from "./middlewares/error";
