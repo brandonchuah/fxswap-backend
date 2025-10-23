@@ -14,12 +14,12 @@ export const DEFAULT_FX_RATES: Record<string, Record<string, number>> = {
 
 export const SUPPORTED_CURRENCIES = Object.keys(DEFAULT_FX_RATES);
 
-export const PYUSD_CONTRACT_ADDRESS = {
+export const PYUSD_CONTRACT_ADDRESS: Record<string, Address> = {
   sepolia: "0xCaC524BcA292aaade2DF8A05cC58F0a65B1B3bB9",
 };
 
 // MockXSGD contract address
-export const XSGD_CONTRACT_ADDRESS = {
+export const XSGD_CONTRACT_ADDRESS: Record<string, Address> = {
   sepolia: "0x8a0c939571ef36363a5b4526a28ac59f623ebf97",
 };
 
