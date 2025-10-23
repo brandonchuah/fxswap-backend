@@ -1,6 +1,10 @@
 import { Address } from "viem";
 import { sepolia } from "viem/chains";
 
+export const FX_SWAP_MODULE_CONTRACT_ADDRESS: Record<number, Address> = {
+  [sepolia.id]: "0x0000000000000000000000000000000000000000", // TODO: set real address
+};
+
 export const FX_RATE_DECIMALS = 18;
 
 export const DEFAULT_FX_RATES: Record<string, Record<string, number>> = {

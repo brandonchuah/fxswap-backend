@@ -1,6 +1,7 @@
 import { Address, Hex } from "viem";
 
 export interface BrokerRequest {
+  chainId: number;
   fromToken: Address;
   toToken: Address;
   receiver: Address;
