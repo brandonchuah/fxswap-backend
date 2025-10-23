@@ -9,6 +9,7 @@ export interface BrokerRequest {
 }
 
 export interface BrokerResponse extends BrokerRequest {
+  brokerAddress: Address;
   fxRate: string;
   deadline: string;
   signature: Hex;

@@ -1,5 +1,6 @@
 import { BrokerResponse } from "@fxswap/interfaces";
 import { NextFunction, Request, Response } from "express";
+import { BROKER_ADDRESS } from "../constants";
 import { FxRateService } from "../services/FxRate.service";
 import { SignatureService } from "../services/Signature.service";
 
@@ -28,6 +29,7 @@ export async function quote(
 
     const response: BrokerResponse = {
       chainId,
+      brokerAddress: BROKER_ADDRESS,
       fromToken,
       toToken,
       receiver,
