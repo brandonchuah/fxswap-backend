@@ -1,6 +1,7 @@
 {
   "files": [],
   "references": [
+    { "path": "./packages/constants" },
     { "path": "./packages/interfaces" },
     { "path": "./services/router" },
     { "path": "./services/broker" }
