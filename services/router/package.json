@@ -16,7 +16,11 @@
     "lint": "echo 'no linter configured'"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "@fxswap/configs": "workspace:*",
+    "@fxswap/interfaces": "workspace:*",
+    "axios": "^1.12.2",
+    "express": "^5.1.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/express": "^5.0.3"
