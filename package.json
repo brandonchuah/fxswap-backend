@@ -9,10 +9,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "pnpm -r --filter ./services/** run build",
+    "build": "pnpm -r --filter \"./services/**\" run build",
     "build:all": "pnpm -r run build",
     "clean": "pnpm -r run clean || true",
-    "dev": "pnpm -r --filter ./services/** run dev",
+    "dev": "pnpm -r --filter \"./services/**\" --if-present run dev",
     "lint": "pnpm -r run lint",
     "typecheck": "pnpm -r run typecheck",
     "test": "vitest run",
