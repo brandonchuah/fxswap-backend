@@ -2,6 +2,7 @@
   "files": [],
   "references": [
     { "path": "./packages/interfaces" },
+    { "path": "./services/router" },
     { "path": "./services/broker" }
   ],
   "extends": "./tsconfig.base.json"

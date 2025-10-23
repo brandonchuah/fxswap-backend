@@ -32,6 +32,19 @@ importers:
       '@fxswap/interfaces':
         specifier: workspace:*
         version: link:../../packages/interfaces
+      '@fxswap/router':
+        specifier: workspace:*
+        version: link:../router
+      express:
+        specifier: ^5.1.0
+        version: 5.1.0
+    devDependencies:
+      '@types/express':
+        specifier: ^5.0.3
+        version: 5.0.3
+
+  services/router:
+    dependencies:
       express:
         specifier: ^5.1.0
         version: 5.1.0
