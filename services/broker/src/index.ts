@@ -1,3 +1,5 @@
+import "@fxswap/configs";
+import { configs } from "@fxswap/configs";
 import express from "express";
 import { errorMiddleware } from "./middlewares/error";
 import { quoteRouter } from "./routes";
@@ -10,8 +12,8 @@ const init = async () => {
 
   app.use(errorMiddleware);
 
-  app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+  app.listen(configs.brokerPort, () => {
+    console.log(`Broker listening on :${configs.brokerPort}`);
   });
 };
 
