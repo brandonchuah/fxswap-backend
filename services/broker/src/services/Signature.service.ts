@@ -5,13 +5,21 @@ import { Account, Hex, getAddress } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 
 export class SignatureService {
+  private static instance: SignatureService | undefined;
   private readonly account: Account | undefined;
 
-  constructor() {
+  private constructor() {
     if (!configs.brokerSignerPrivateKey) {
       throw new Error("BROKER_SIGNER_PRIVATE_KEY is not set");
     }
     this.account = privateKeyToAccount(configs.brokerSignerPrivateKey as Hex);
+  }
+
+  static getInstance(): SignatureService {
+    if (!this.instance) {
+      this.instance = new SignatureService();
+    }
+    return this.instance;
   }
 
   async signQuote(
@@ -68,5 +76,3 @@ export class SignatureService {
     return signature;
   }
 }
-
-export const signatureService = new SignatureService();

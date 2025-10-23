@@ -10,7 +10,7 @@ describe("FxRateService", () => {
   let service: FxRateService;
 
   beforeEach(() => {
-    service = new FxRateService();
+    service = FxRateService.getInstance();
   });
 
   it("returns rate from API response", async () => {

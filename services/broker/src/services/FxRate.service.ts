@@ -14,11 +14,19 @@ import { Address, parseUnits } from "viem";
  * Brokers can implement their own logic to get the rate.
  */
 export class FxRateService {
+  private static instance: FxRateService | undefined;
   private readonly baseUrl = "https://api.fastforex.io";
   private readonly apiKey: string;
 
-  constructor() {
+  private constructor() {
     this.apiKey = configs.fastForexApiKey;
+  }
+
+  static getInstance(): FxRateService {
+    if (!this.instance) {
+      this.instance = new FxRateService();
+    }
+    return this.instance;
   }
 
   public async getRateFromTokenAddresses(
@@ -79,5 +87,3 @@ export class FxRateService {
     return SUPPORTED_CURRENCIES.includes(currency);
   }
 }
-
-export const fxRateService = new FxRateService();

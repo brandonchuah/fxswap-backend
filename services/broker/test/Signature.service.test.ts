@@ -16,7 +16,7 @@ describe("SignatureService", () => {
       process.env.BROKER_SIGNER_PRIVATE_KEY = generatePrivateKey();
     }
     const mod = await import("../src/services/Signature.service");
-    signatureService = new mod.SignatureService();
+    signatureService = mod.SignatureService.getInstance();
   });
 
   it("signs quote and returns signature", async () => {
