@@ -1,0 +1,20 @@
+{
+  "name": "@fxswap/broker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "dev": "ts-node --project tsconfig.json src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo 'no linter configured'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

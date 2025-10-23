@@ -1,0 +1,25 @@
+{
+  "name": "fxswap_backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "packageManager": "pnpm@10.19.0",
+  "workspaces": [
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r --filter ./services/** run build",
+    "build:all": "pnpm -r run build",
+    "clean": "pnpm -r run clean || true",
+    "dev": "pnpm -r --filter ./services/** run dev",
+    "lint": "pnpm -r run lint",
+    "typecheck": "pnpm -r run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
