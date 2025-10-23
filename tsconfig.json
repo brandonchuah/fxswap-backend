@@ -1,5 +1,8 @@
 {
   "files": [],
-  "references": [{ "path": "./services/broker" }],
+  "references": [
+    { "path": "./packages/interfaces" },
+    { "path": "./services/broker" }
+  ],
   "extends": "./tsconfig.base.json"
 }
