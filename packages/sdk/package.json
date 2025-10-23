@@ -1,0 +1,21 @@
+{
+  "name": "@fxswap/sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo 'no linter configured'"
+  },
+  "dependencies": {
+    "@fxswap/interfaces": "workspace:*",
+    "axios": "^1.12.2"
+  }
+}
