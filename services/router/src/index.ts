@@ -1,4 +1,5 @@
 import "@fxswap/configs";
+import { configs } from "@fxswap/configs";
 import express from "express";
 import { errorMiddleware } from "./middlewares/error";
 import { router } from "./routes";
@@ -10,9 +11,8 @@ const init = async () => {
   app.use("/", router);
   app.use(errorMiddleware);
 
-  const port = parseInt(process.env.ROUTER_PORT || "3001", 10);
-  app.listen(port, () => {
-    console.log(`Router listening on :${port}`);
+  app.listen(configs.routerPort, () => {
+    console.log(`Router listening on :${configs.routerPort}`);
   });
 };
 
