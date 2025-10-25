@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@fxswap/sdk": "workspace:*",
+    "dotenv": "^17.2.3",
     "viem": "^2.38.3"
   },
   "devDependencies": {
