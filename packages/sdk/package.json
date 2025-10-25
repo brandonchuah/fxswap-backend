@@ -15,7 +15,9 @@
     "lint": "echo 'no linter configured'"
   },
   "dependencies": {
+    "@fxswap/constants": "workspace:*",
     "@fxswap/interfaces": "workspace:*",
-    "axios": "^1.12.2"
+    "axios": "^1.12.2",
+    "viem": "^2.38.3"
   }
 }
