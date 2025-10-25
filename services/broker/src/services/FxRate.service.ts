@@ -3,6 +3,7 @@ import {
   DEFAULT_FX_RATES,
   FX_RATE_DECIMALS,
   getCurrencyFromTokenAddress,
+  getTokenDecimals,
   SUPPORTED_CURRENCIES,
 } from "@fxswap/constants";
 import axios from "axios";
@@ -38,7 +39,25 @@ export class FxRateService {
     try {
       const fromCurrency = getCurrencyFromTokenAddress(fromToken, fromChainId);
       const toCurrency = getCurrencyFromTokenAddress(toToken, toChainId);
-      return this.getRate(fromCurrency, toCurrency);
+      const baseRate = await this.getRate(fromCurrency, toCurrency);
+
+      const fromDecimals = getTokenDecimals(fromToken, fromChainId);
+      const toDecimals = getTokenDecimals(toToken, toChainId);
+
+      if (fromDecimals === toDecimals) {
+        return baseRate;
+      }
+
+      const decimalDiff = toDecimals - fromDecimals;
+      if (decimalDiff === 0) {
+        return baseRate;
+      }
+
+      const adjustment = BigInt(10) ** BigInt(Math.abs(decimalDiff));
+      const base = BigInt(baseRate);
+      const adjustedRate =
+        decimalDiff > 0 ? base * adjustment : base / adjustment;
+      return adjustedRate.toString();
     } catch (error: any) {
       throw new Error(
         `Failed to get rate from token addresses: ${error.message ?? error}`,

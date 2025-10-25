@@ -42,3 +42,26 @@ export const getCurrencyFromTokenAddress = (
 
   throw new Error(`Unsupported token on chain ${chainId}: ${tokenAddress}`);
 };
+
+export const PYUSD_DECIMALS = 6;
+export const XSGD_DECIMALS = 18;
+
+export const TOKEN_DECIMALS: Record<number, Record<string, number>> = {
+  [sepolia.id]: {
+    [PYUSD_CONTRACT_ADDRESS.sepolia as string]: PYUSD_DECIMALS,
+    [XSGD_CONTRACT_ADDRESS.sepolia as string]: XSGD_DECIMALS,
+  },
+};
+
+export const getTokenDecimals = (
+  tokenAddress: Address,
+  chainId: number,
+): number => {
+  const decimals = TOKEN_DECIMALS?.[chainId]?.[tokenAddress];
+  if (typeof decimals !== "number") {
+    throw new Error(
+      `Unsupported token decimals on chain ${chainId}: ${tokenAddress}`,
+    );
+  }
+  return decimals;
+};
