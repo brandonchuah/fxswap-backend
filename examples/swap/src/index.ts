@@ -13,7 +13,7 @@ if (!PRIVATE_KEY) {
 
 async function main(): Promise<void> {
   const account = privateKeyToAccount(PRIVATE_KEY);
-  console.log(account.address);
+  console.log(`Account: ${account.address}`);
 
   const walletClient = createWalletClient({
     chain: sepolia,
@@ -30,7 +30,7 @@ async function main(): Promise<void> {
     amount: parseUnits("1", 6).toString(),
   });
 
-  console.log(`Transaction hash: ${hash}`);
+  console.log(`Swap successful: ${hash}`);
 }
 
 main().catch((e) => {
