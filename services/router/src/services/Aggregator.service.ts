@@ -10,10 +10,12 @@ export class AggregatorService {
 
   private constructor() {
     this.endpoints = configs.brokerEndpoints
-      .split(",")
-      .map((s: string) => s.trim())
-      .filter(Boolean)
-      .map((baseUrl: string): BrokerEndpoint => ({ baseUrl }));
+      ? configs.brokerEndpoints
+          .split(",")
+          .map((s: string) => s.trim())
+          .filter(Boolean)
+          .map((baseUrl: string): BrokerEndpoint => ({ baseUrl }))
+      : [{ baseUrl: "http://localhost:3000" }];
   }
 
   static getInstance(): AggregatorService {
