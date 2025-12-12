@@ -14,8 +14,6 @@ FxSwap provides users FX-aligned stablecoin swaps. Institutions can quote and pr
   - [Environment](#environment)
   - [Run services](#run-services)
   - [Run the example swap](#run-the-example-swap)
-  - [Example successful swap](#example-successful-swap)
-- [Possible Future improvements](#possible-future-improvements)
 
 ### Motivation
 
