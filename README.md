@@ -29,8 +29,6 @@ FxSwap provides users FX-aligned stablecoin swaps. Institutions can quote and pr
 
 ### Repo structure
 
-This project is made as a monorepo for simplicity for the EthGlobal 2025 Online hackathon.
-
 - **Services**
   - `services/broker`: Issues quotes and signatures for swaps based on FX rates. Brokers can plug in their pricing logic and set quoting rules and risk controls.
   - `services/router`: Aggregates/broadcasts broker quotes and exposes a public API for clients (early version).
@@ -98,15 +96,3 @@ Notes:
 
 - Ensure the wallet has sufficient PYUSD on Sepolia to cover the `amount` and ETH on sepolia for gas. The example showcases swapping of 1 PYUSD .
 
-#### Example successful swap
-
-- PYUSD to XSGD https://sepolia.etherscan.io/tx/0xfa5672c80eb1f0ceca8ce37a147c47c9138980faea4025f5e3fbb89ccb398e58
-- XSGD to PYUSD https://sepolia.etherscan.io/tx/0xb90cf06084c5d7800b758cc639f05696aa1e3668c69b33f4da317ea60cdb7ac4
-
-### Possible Future improvements
-
-- **Multi-chain support** with cross chain stablecoin swaps.
-- **Advanced routing**: multi-broker, multi-hop, and best-execution logic
-- **AMM liquidity sourcing**: integrate quotes from existing AMMs (e.g., Uniswap) as additional liquidity sources alongside broker quotes; aggregate for best execution.
-- **Standalone, customizable broker client**: a packaged service (CLI/Docker) that institutions can run to quote at their own rates. Support simple static rates as well as pluggable pricing sources (REST/WS FX feeds, internal treasury rates, TWAP/VWAP). Provide config-driven policies (spreads, max notional, allowed pairs),
-- **Fee framework**: protocol and/or broker fees (bps), configurable per pair/route with on-chain accounting, revenue sharing, and clear disclosure in quotes.
